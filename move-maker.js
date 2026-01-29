@@ -17,10 +17,13 @@
 */
 function validateMove(move, board) {
     // check if move is represented by 2 numbers separated by a comma
-    moveStr = move.toString()
+    let moveStr;
+    typeof(move) === 'string'
+    ? moveStr = move
+    : moveStr = move.toString()
     if (moveStr.length === 3 && moveStr.includes(",")) {
         // 1st digit has to be from 1 to 3 only
-        moveArr = moveStr.split(",")
+        const moveArr = moveStr.split(",")
         if (moveArr[0] === 1 || moveArr[0] === 2 || moveArr[0] === 3) {
             // 2nd digit has to be from 1 to 3 only
             if (moveArr[1] === 1 || moveArr[1] === 2 || moveArr[1] === 3)  {
@@ -50,7 +53,7 @@ function validateMove(move, board) {
 */
 export function makeMove(board, move, player) {
     if (!validateMove(move, board)) {
-         return false;
+        return false;
     } else {
         const moveArr = move.toString().split(",")
         player === 'X'
