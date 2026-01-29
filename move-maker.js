@@ -32,5 +32,12 @@ function validateMove(move, board) {
             - Return true
 */
 export function makeMove(board, move, player) {
-    return false;
+    // check validateMove()
+    if (!validateMove(move, board)) {
+         return false;
+    } else {
+        // update the board 
+        // return true
+    }
+   
 }
