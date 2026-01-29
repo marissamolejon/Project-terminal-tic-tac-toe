@@ -36,8 +36,21 @@ export function makeMove(board, move, player) {
     if (!validateMove(move, board)) {
          return false;
     } else {
+        const moveArr = move.toString().split(",")
         // update the board 
-        // return true
+        player === 'X'
+        ? board[moveArr[0] - 1][moveArr[1] - 1] = 'X'
+        : board[moveArr[0] - 1][moveArr[1] - 1] = 'Y'
+        console.log(board)
+        return true
     }
    
 }
+
+let board = [
+            ['X', '_', '_'],
+            ['_', 'X', '_'],
+            ['O', 'O', 'X']
+        ];
+
+console.log(makeMove(board, '1,2', 'X'))
