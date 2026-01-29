@@ -37,20 +37,19 @@ export function makeMove(board, move, player) {
          return false;
     } else {
         const moveArr = move.toString().split(",")
-        // update the board 
         player === 'X'
         ? board[moveArr[0] - 1][moveArr[1] - 1] = 'X'
-        : board[moveArr[0] - 1][moveArr[1] - 1] = 'Y'
-        console.log(board)
+        : board[moveArr[0] - 1][moveArr[1] - 1] = 'O'
+        // console.log(board)
         return true
     }
    
 }
 
-let board = [
-            ['X', '_', '_'],
-            ['_', 'X', '_'],
-            ['O', 'O', 'X']
-        ];
+// let board = [
+//             ['X', '_', '_'],
+//             ['_', 'X', '_'],
+//             ['O', 'O', 'X']
+//         ];
 
-console.log(makeMove(board, '1,2', 'X'))
+// console.log(makeMove(board, '1,2', 'O'))
