@@ -16,8 +16,25 @@
         ];
 */
 function validateMove(move, board) {
-    // Implement this at the end if you have time, otherwise you can help your teammates!
-    return true;
+    // check if move is represented by 2 numbers separated by a comma
+    moveStr = move.toString()
+    if (moveStr.length === 3 && moveStr.includes(",")) {
+        // 1st digit has to be from 1 to 3 only
+        moveArr = moveStr.split(",")
+        if (moveArr[0] === 1 || moveArr[0] === 2 || moveArr[0] === 3) {
+            // 2nd digit has to be from 1 to 3 only
+            if (moveArr[1] === 1 || moveArr[1] === 2 || moveArr[1] === 3)  {
+                // check if position is blank (_)
+                if (board[moveArr[0] - 1][moveArr[1] - 1] === '_') {
+                    // --> valid -> return true
+                    return true
+                }
+            }
+        }
+    }
+    // not valid --> output 'Try again...', return false
+    console.log("Try again...")
+    return false;
 }
 
 /*
@@ -32,7 +49,6 @@ function validateMove(move, board) {
             - Return true
 */
 export function makeMove(board, move, player) {
-    // check validateMove()
     if (!validateMove(move, board)) {
          return false;
     } else {
@@ -40,16 +56,7 @@ export function makeMove(board, move, player) {
         player === 'X'
         ? board[moveArr[0] - 1][moveArr[1] - 1] = 'X'
         : board[moveArr[0] - 1][moveArr[1] - 1] = 'O'
-        // console.log(board)
         return true
     }
    
 }
-
-// let board = [
-//             ['X', '_', '_'],
-//             ['_', 'X', '_'],
-//             ['O', 'O', 'X']
-//         ];
-
-// console.log(makeMove(board, '1,2', 'O'))
