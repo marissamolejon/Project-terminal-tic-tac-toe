@@ -26,7 +26,6 @@ function validateMove(move, board) {
         const moveArr = moveStr.split(",")
         if (moveArr[0] == 1 || moveArr[0] == 2 || moveArr[0] == 3) {
             // 2nd digit has to be from 1 to 3 only
-            console.log(moveArr)
             if (moveArr[1] == 1 || moveArr[1] == 2 || moveArr[1] == 3)  {
                 // check if position is blank (_)
                 if (board[moveArr[0] - 1][moveArr[1] - 1] === '_') {
