@@ -29,7 +29,8 @@ export function checkRow(board, player, rowNumber) {
     Return true if the player has made a move in all 3 squares in the column
     Otherwise, return false
 */
-function checkColumn(board, player, columnNumber) {
+export function checkColumn(board, player, columnNumber) {
+    return board[0][columnNumber] == board[1][columnNumber] && board[1][columnNumber] == board[2][columnNumber]
 }
 
 /*
