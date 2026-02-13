@@ -1,4 +1,4 @@
-import { checkRow, checkColumn } from "../status-checker";
+import { checkRow, checkColumn, checkDiagonal } from "../status-checker";
 
 test("checkRow returns true if player made a move in all 3 squares in the row", () => {
   const board = [
@@ -24,14 +24,32 @@ test("checkColumn returns true if the player has made a move in all 3 squares in
             ['_', '_', 'X'],
             ['O', 'O', 'X']
         ];
-  expect(checkRow(board, 'X', 2)).toBe(false);
+  expect(checkColumn(board, 'X', 2)).toBe(true);
 });
 
-test("checkColumn returns false if the player doesn't made a move in all 3 squares in the column", () => {
+test("checkColumn returns false if the player hasn't made a move in all 3 squares in the column", () => {
   const board = [
             ['X', '_', 'X'],
             ['_', '_', 'O'],
             ['O', 'O', 'X']
         ];
-  expect(checkRow(board, 'X', 2)).toBe(false);
+  expect(checkColumn(board, 'X', 2)).toBe(false);
+});
+
+test("checkDiagonal returns true if the player has made a move in 3 diagonal squares", () => {
+  const board = [
+            ['X', '_', 'X'],
+            ['_', 'X', 'O'],
+            ['O', 'O', 'X']
+        ];
+  expect(checkDiagonal(board, 'X')).toBe(true);
+});
+
+test("checkDiagonal returns false if the player has not made a move in 3 diagonal squares", () => {
+  const board = [
+            ['X', '_', 'X'],
+            ['_', '_', 'O'],
+            ['O', 'O', 'X']
+        ];
+  expect(checkDiagonal(board, 'X')).toBe(false);
 });
