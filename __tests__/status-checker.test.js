@@ -1,4 +1,4 @@
-import { checkRow, checkColumn, checkDiagonal } from "../status-checker";
+import { checkRow, checkColumn, checkDiagonal, isGameOver } from "../status-checker";
 
 test("checkRow returns true if player made a move in all 3 squares in the row", () => {
   const board = [
@@ -52,4 +52,22 @@ test("checkDiagonal returns false if the player has not made a move in 3 diagona
             ['O', 'O', 'X']
         ];
   expect(checkDiagonal(board, 'X')).toBe(false);
+});
+
+test("isGameOver returns true when 1 player wins or it's a tie", () => {
+  const board = [
+            ['X', '_', '_'],
+            ['_', 'X', '_'],
+            ['O', 'O', 'X']
+        ];
+  expect(isGameOver(board)).toBe(true);
+});
+
+test("isGameOver returns false when none player winning yet", () => {
+  const board = [
+            ['X', '_', '_'],
+            ['_', '_', '_'],
+            ['O', 'O', 'X']
+        ];
+  expect(isGameOver(board)).toBe(false);
 });
