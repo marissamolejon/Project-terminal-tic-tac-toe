@@ -17,7 +17,8 @@ import { checkIfNoMovesLeft } from './board-printer.js';
     Return true if the player has made a move in all 3 squares in the row
     Otherwise, return false
 */
-function checkRow(board, player, rowNumber) {
+export function checkRow(board, player, rowNumber) {
+    return board[rowNumber][0] === board[rowNumber][1] && board[rowNumber][1] === board[rowNumber][2] && board[rowNumber][2] == player
 }
 
 /*
@@ -28,7 +29,8 @@ function checkRow(board, player, rowNumber) {
     Return true if the player has made a move in all 3 squares in the column
     Otherwise, return false
 */
-function checkColumn(board, player, columnNumber) {
+export function checkColumn(board, player, columnNumber) {
+    return board[0][columnNumber] == board[1][columnNumber] && board[1][columnNumber] == board[2][columnNumber] && board[2][columnNumber] == player
 }
 
 /*
@@ -38,8 +40,11 @@ function checkColumn(board, player, columnNumber) {
     Return true if the player has made a move in 3 diagonal squares
     Otherwise, return false
 */
-function checkDiagonal(board, player) {
+export function checkDiagonal(board, player) {
     // It may be easier to use an if statement than a loop here
+    if (board[0][0] == board[1][1] && board[1][1] && board[2][2] || board[0][2] == board[1][1] && board[1][1] == board[2][0] && board[2][0] == player) {
+        return true
+    } else return false
 }
 
 
