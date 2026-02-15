@@ -16,6 +16,19 @@
     Test your function by calling it with an example tic-tac-toe board.
 */
 export function printBoard(board) {
+  const separator = "=================";
+
+  for (let i = 0; i < board.length; i++) {
+    const row = board[i]
+      .map(cell => (cell === "_" ? " " : cell))
+      .join("  |  ");
+
+    console.log(`  ${row}  `);
+
+    if (i < board.length - 1) {
+      console.log(separator);
+    }
+  }
 }
 
 /*
@@ -24,4 +37,12 @@ export function printBoard(board) {
         - return false if there are still moves that can be made
 */
 export function checkIfNoMovesLeft(board) {
+  for (const row of board) {
+    if (row.includes("_")) {
+      return false;
+    }
+  }
+
+  return true;
 }
+
