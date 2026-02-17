@@ -71,3 +71,12 @@ test("isGameOver returns false when none player winning yet", () => {
         ];
   expect(isGameOver(board)).toBe(false);
 });
+
+test("isGameOver returns false when board is empty", () => {
+  const board = [
+            ['_', '_', '_'],
+            ['_', '_', '_'],
+            ['_', '_', '_']
+        ];
+  expect(isGameOver(board)).toBe(false);
+});

@@ -42,7 +42,7 @@ export function checkColumn(board, player, columnNumber) {
 */
 export function checkDiagonal(board, player) {
     // It may be easier to use an if statement than a loop here
-    if (board[0][0] == board[1][1] && board[1][1] && board[2][2] || board[0][2] == board[1][1] && board[1][1] == board[2][0] && board[2][0] == player) {
+    if (board[0][0] == board[1][1] && board[1][1] && board[2][2] && board[2][2] == player || board[0][2] == board[1][1] && board[1][1] == board[2][0] && board[2][0] == player) {
         return true
     } else return false
 }
